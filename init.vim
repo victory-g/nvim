@@ -166,7 +166,8 @@ Plug 'terryma/vim-smooth-scroll'
 Plug 'rhysd/clever-f.vim'
 Plug 'MattesGroeger/vim-bookmarks'
 " Plug 'danilo-augusto/vim-afterglow'    "colorscheme afterglow
-" Plug 'joshdick/onedark-vim'
+Plug 'joshdick/onedark.vim'
+Plug 'sheerun/vim-polyglot'
 " 加载自定义插件
 Plug 'nvim-treesitter/nvim-treesitter',  {'do': ':TSUpdate'} 
 Plug 'nvim-treesitter/playground'      
@@ -237,7 +238,7 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "
 " 主题设置
 set background=dark
 let g:onedark_termcolors=256
-" colorscheme onedark
+colorscheme onedark
 
 " airline
 let g:airline_theme="onedark"
