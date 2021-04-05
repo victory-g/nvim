@@ -172,6 +172,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'nvim-treesitter/nvim-treesitter',  {'do': ':TSUpdate'} 
 Plug 'nvim-treesitter/playground'      
 " Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase'  } 
+Plug 'ap/vim-css-color' 
 Plug 'RRethy/vim-illuminate'                              
 Plug 'kevinhwang91/rnvimr'
 " Plug 'airblade/vim-rooter'
