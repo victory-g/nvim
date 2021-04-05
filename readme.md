@@ -19,8 +19,19 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 ```
 
 # ctags安装使用
-```
+```shell
 https://blog.csdn.net/lc_cc/article/details/103376325
 sudo apt-get install ctags
 sudo ctags -R  *
+```
+
+# taglist安装
+```shell
+https://blog.csdn.net/networkhunter/article/details/91952294
+下载地址：http://www.vim.org/scripts/download_script.php?src_id=7701
+1. 将/taglist_42.zip解压到nvim文件夹中
+2. cd ./doc
+3. nvim  打开nvim
+4. :helptags .
+5. :Tlist
 ```

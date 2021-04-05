@@ -330,7 +330,7 @@ let g:ycm_semantic_triggers =  {
 
 " tagbar
 let g:tagbar_width = 30
-nnoremap <silent> <leader>t :TagbarToggle<cr>
+nnoremap <silent> <leader>t :Tlist<cr>
 
 " incsearch.vim
 map /  <Plug>(incsearch-forward)
