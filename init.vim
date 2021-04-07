@@ -172,7 +172,6 @@ Plug 'sheerun/vim-polyglot'
 " 加载自定义插件
 Plug 'nvim-treesitter/nvim-treesitter',  {'do': ':TSUpdate'} 
 Plug 'nvim-treesitter/playground'      
-" Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase'  } 
 Plug 'ap/vim-css-color' 
 Plug 'RRethy/vim-illuminate'                              
 Plug 'kevinhwang91/rnvimr'
@@ -637,3 +636,4 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l 
 
 " shell-help
+noremap <leader>ot :set splitbelow<CR>:split<CR> :terminal<CR>
