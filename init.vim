@@ -636,4 +636,4 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l 
 
 " shell-help
-noremap <leader>ot :set splitbelow<CR>:split<CR> :terminal<CR>
+noremap <leader>ot :set splitbelow<CR>:split<CR>:terminal<CR>:resize-20<CR>i
