@@ -187,7 +187,7 @@ Plug 'skywind3000/vim-terminal-help'
 
 " python插件
 Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug']  }
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python3', 'vim-plug']  } 
+" Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python3', 'vim-plug']  } 
 Plug 'tweekmonster/braceless.vim', { 'for' :['python', 'vim-plug']  }
 " swift
 Plug 'keith/swift.vim' 
@@ -578,6 +578,7 @@ let g:rainbow_conf = {
 
 " 自定义配置
 set scrolloff=7
+autocmd BufNewFile *.html 0r ~/.config/nvim/template/template.html
 " set termguicolors           "  设置RDB显示vim-hexokinase
 
 "" 自定义快捷方式
