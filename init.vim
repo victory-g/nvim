@@ -216,7 +216,7 @@ nnoremap <leader>vp :edit ~/.config/nvim/.vimrc.custom.plugins<cr>
 nnoremap <leader>h :view +let\ &l:modifiable=0 ~/.config/nvim/help.md<cr>
 
 " 打开当前光标所在单词的vim帮助文档
-nnoremap <leader>H :execute ":help " . expand("<cword>")<cr>
+nnoremap <leader>HH :execute ":help " . expand("<cword>")<cr>
 
 " 重新加载vimrc文件
 nnoremap <leader>s :source $MYVIMRC<cr>
@@ -436,7 +436,7 @@ function! Show_documentation()
 		call CocAction('doHover')
 	endif
 endfunction
-nnoremap <LEADER>HH :call Show_documentation()<CR>
+nnoremap <LEADER>H :call Show_documentation()<CR>
 " set runtimepath^=~/.config/nvim/coc-extensions/coc-flutter-tools/
 " let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
 " let $NVIM_COC_LOG_LEVEL = 'debug'

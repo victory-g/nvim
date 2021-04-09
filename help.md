@@ -50,7 +50,7 @@
 | `<leader>vp`        | 快速编辑~/.vimrc.custom.plugins文件       |
 | `<leader>vc`        | 快速编辑~/.vimrc.custom.config文件        |
 | `<leader>h`         | 打开vimplus帮助文档                       |
-| `<leader>H`         | 打开当前光标所在单词的vim帮助文档         |
+| `<leader>HH`        | 打开当前光标所在单词的vim帮助文档         |
 | `<leader><leader>t` | 生成try-catch代码块                       |
 | `<leader><leader>y` | 复制当前选中到系统剪切板                  |
 | `<leader><leader>i` | 安装插件                                  |
@@ -62,8 +62,8 @@
 | `z=`                | 单词推荐                                  |
 | `<c-x> s`           | 拼写提示                                  |
 | `gf`                | go to file                                |
-| `<leader>H`         | 显示函数详解                              |
-| `<leader>HH`        | 显示函数简介                              |
+| `<leader>HH`        | 显示函数详解                              |
+| `<leader>H`         | 显示函数/变量简介                              |
 | `<leader><leader>d` | 搜索语法警告和错误                        |
 | `<leader>+`         | 上一个语法警告或错误                      |
 | `<leader>-`         | 下一个语法警告或错误                      |
