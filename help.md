@@ -59,12 +59,19 @@
 | `<leader><leader>c` | 删除插件                                  |
 | `sc`                | 拼写检查                                  |
 | `cs`                | 改变成对的符号                            |
+| `cs"'`              | "Hello world!" ---> 'Hello world!'        |
+| `cs"<q>`            | "Hello world!" ---> <q>Hello world!</q>   |
+| `cst"`              | "<q>Hello world!</q> ---> "Hello world!"  |
+| `ds"`               | "Hello world!" --->  Hello world!         |
+| `ysiw]`             |  Hello world!  ---> [Hello] world!        |
+| `yss[`              |  Hello world!  ---> [Hello world!]        |
+| `选中输入S<p class="imporant">` |                               |
 | `ts`                | 单词翻译                                  |
 | `z=`                | 单词推荐                                  |
 | `<c-x> s`           | 拼写提示                                  |
 | `gf`                | go to file                                |
 | `<leader>HH`        | 显示函数详解                              |
-| `<leader>H`         | 显示函数/变量简介                              |
+| `<leader>H`         | 显示函数/变量简介                         |
 | `<leader><leader>d` | 搜索语法警告和错误                        |
 | `<leader>+`         | 上一个语法警告或错误                      |
 | `<leader>-`         | 下一个语法警告或错误                      |
@@ -320,6 +327,8 @@
 | -------              | -----                                            |
 | `/pattern`           | 从光标处向文件尾搜索 pattern                     |
 | `?pattern`           | 从光标处向文件头搜索 pattern                     |
+| ``/\Cpattern``         | 区分大小写搜索
+| `/\<pattern\>`       | 精准搜索
 | `n`                  | 向同一方向执行上一次搜索                         |
 | `N`                  | 向相反方向执行上一次搜索                         |
 | `*`                  | 向前搜索光标下的单词                             |
