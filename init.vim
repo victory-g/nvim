@@ -73,6 +73,12 @@ set hlsearch            " 高亮显示搜索结果
 set incsearch           " 开启实时搜索功能
 set ignorecase          " 搜索时大小写不敏感
 
+" 在当前文件夹的.c文件中查找高亮的单词
+noremap <leader>vgc  :vimgrep /<C-r><C-w>/*.c\|copen<cr> 
+
+" 在当前文件夹的文件中查找高亮的单词
+noremap <leader>vg  :vimgrep /<C-r><C-w>/*\|copen<cr>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 缓存设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -638,3 +644,4 @@ nnoremap <c-l> <c-w>l
 
 " shell-help
 noremap <leader>ot :set splitbelow<CR>:split<CR>:terminal<CR>:resize-20<CR>i
+

@@ -50,6 +50,7 @@
 | `<leader>s`         | 重新加载~/.vimrc文件                      |
 | `<leader>vp`        | 快速编辑~/.vimrc.custom.plugins文件       |
 | `<leader>vc`        | 快速编辑~/.vimrc.custom.config文件        |
+| `<leader>vg`        | 在当前文件夹下查找高亮单词
 | `<leader>h`         | 打开vimplus帮助文档                       |
 | `<leader>HH`        | 打开当前光标所在单词的vim帮助文档         |
 | `<leader><leader>t` | 生成try-catch代码块                       |
@@ -82,6 +83,18 @@
 | `<leader>rn`        | 重命名光标所在变量名                      |
 | `：w ! sudo tee %`  | vim没有权限写入                           |
 | `：SudaWrite`       | nvim没有权限写入                          |
+
+## Command-line
+
+| 快捷键 | 说明 |
+| --- | --- |
+| `Ctrl+c`            | 退出command-line模式 |
+| `Ctrl+b`            | 光标移动到行首       |
+| `Ctrl+e`            | 光标移动到行尾       |
+| `Ctrl+r Ctrl+f`     | 插入光标下的对象     |
+| `Ctrl+r Ctrl+p`     | 插入光标下的对象     |
+| `Ctrl+r Ctrl+w`     | 插入光标下的对象     |
+| `Ctrl+r Ctrl+a`     | 插入光标下的对象     |
 
 ## 代码折叠
 
