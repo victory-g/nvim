@@ -203,6 +203,10 @@ Plug 'neoclide/jsonc.vim'
 Plug 'othree/html5.vim'   
 Plug 'alvan/vim-closetag' 
 
+" ranger
+Plug 'kevinhwang91/rnvimr'
+
+
 " 加载用户自定义插件
 " if filereadable(expand($HOME . '/.vimrc.custom.plugins'))
 "     source $HOME/.vimrc.custom.plugins
@@ -574,6 +578,11 @@ let g:rainbow_conf = {
 	\		'css': 0,
 	\	}
 	\}
+
+" ranger
+noremap <space>r :RnvimrToggle<CR>
+let g:rnvimr_enable_ex = 1
+let g:rnvimr_enable_picker = 1
 
 
 "
