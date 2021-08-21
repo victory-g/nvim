@@ -204,8 +204,7 @@ Plug 'othree/html5.vim'
 Plug 'alvan/vim-closetag' 
 
 " ranger
-Plug 'kevinhwang91/rnvimr'
-
+Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 
 " 加载用户自定义插件
 " if filereadable(expand($HOME . '/.vimrc.custom.plugins'))
@@ -579,10 +578,17 @@ let g:rainbow_conf = {
 	\	}
 	\}
 
-" ranger
-noremap <space>r :RnvimrToggle<CR>
-let g:rnvimr_enable_ex = 1
-let g:rnvimr_enable_picker = 1
+" ===
+" === ranger
+" ===
+" 让ranger替换 netrw成为文件浏览器
+let g:rnvimr_ex_enable = 1
+" 选择文件后隐藏 Ranger 
+let  g:rnvimr_enable_picker  =  1
+
+"
+" 空格 + r打开ranger
+nmap <space>r :RnvimrToggle<CR>
 
 
 "
