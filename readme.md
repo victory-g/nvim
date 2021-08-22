@@ -2,7 +2,7 @@
 ```shell
 sudo apt update && sudo apt upgrade && sudo apt-get install -y ninja-build gettext libtool libtool-bin \
 autoconf automake cmake g++ pkg-config unzip git bash fzf wget libssl-dev libffi-dev locales curl ripgrep \
-nodejs npm  clang-tools-11 clangd-11
+nodejs npm  clang-tools-11 clangd-11 python3-venv
 
 sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-11 100
 
