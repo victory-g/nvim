@@ -47,3 +47,4 @@ https://blog.csdn.net/networkhunter/article/details/91952294
 4. nvim       # 打开nvim
 5. :helptags .
 6. :Tlist
+7. ....
