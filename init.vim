@@ -74,7 +74,7 @@ set incsearch           " 开启实时搜索功能
 set ignorecase          " 搜索时大小写不敏感
 
 " 在当前文件夹的.c文件中查找高亮的单词
-noremap <leader>vgc  :vimgrep /<C-r><C-w>/*.c\|copen<cr> 
+noremap <leader>vgc  :vimgrep /<C-r><C-w>/*.c *.h\|copen<cr> 
 
 " 在当前文件夹的文件中查找高亮的单词
 noremap <leader>vg  :vimgrep /<C-r><C-w>/*\|copen<cr>
@@ -185,7 +185,7 @@ Plug 'kevinhwang91/rnvimr'
 Plug 'liuchengxu/vista.vim'
 Plug 'mbbill/undotree'
 Plug 'OmniSharp/omnisharp-vim'
-Plug 'fatih/vim-go' , { 'for': ['go', 'vim-plug'], 'tag': '*'  } 
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'Yggdroot/indentLine'
 Plug 'luochen1990/rainbow' 
 Plug 'lambdalisue/suda.vim' 
