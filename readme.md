@@ -16,6 +16,12 @@ sudo npm i -g neovim
 sudo npm i -g bash-language-server
 pip2 install pynvim ueberzug
 pip3 install pynvim ueberzug
+
+# 设置gem源
+1. 查看当前源：gem sources
+2. 换源：gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
+3. 清空源缓存：gem sources -c
+4. 更新源缓存：gem sources -u
 ```
 
 # 安装vim-plug
