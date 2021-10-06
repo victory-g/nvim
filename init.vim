@@ -137,9 +137,7 @@ Plug 'chxuan/change-colorscheme'
 Plug 'chxuan/prepare-code'
 Plug 'chxuan/vim-buffer'
 Plug 'chxuan/vimplus-startify'
-" Plug 'chxuan/tagbar'
-" Plug 'Valloric/YouCompleteMe'
-" Plug 'ycm-core/YouCompleteMe'
+" Plug 'preservim/tagbar'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
 " Plug 'wellle/tmux-complete.vim'
@@ -172,7 +170,6 @@ Plug 'Shougo/echodoc.vim'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'rhysd/clever-f.vim'
 Plug 'MattesGroeger/vim-bookmarks'
-" Plug 'danilo-augusto/vim-afterglow'    "colorscheme afterglow
 Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
 " 加载自定义插件
@@ -180,7 +177,6 @@ Plug 'nvim-treesitter/nvim-treesitter',  {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'      
 Plug 'ap/vim-css-color' 
 Plug 'RRethy/vim-illuminate'                              
-Plug 'kevinhwang91/rnvimr'
 " Plug 'airblade/vim-rooter'
 Plug 'liuchengxu/vista.vim'
 Plug 'mbbill/undotree'
@@ -193,7 +189,7 @@ Plug 'skywind3000/vim-terminal-help'
 
 " python插件
 Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug']  }
-" Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python3', 'vim-plug']  } 
+" Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 Plug 'tweekmonster/braceless.vim', { 'for' :['python', 'vim-plug']  }
 " swift
 Plug 'keith/swift.vim' 
@@ -204,11 +200,14 @@ Plug 'othree/html5.vim'
 Plug 'alvan/vim-closetag' 
 
 " ranger
-Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+Plug 'kevinhwang91/rnvimr'
 
 " markdown
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'
+
+" translator
+Plug 'voldikss/vim-translator'
 
 " 加载用户自定义插件
 " if filereadable(expand($HOME . '/.vimrc.custom.plugins'))
@@ -267,24 +266,17 @@ let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 
 " cpp-mode
-"nnoremap <leader>y :CopyCode<cr>
-"nnoremap <leader>p :PasteCode<cr>
-"nnoremap <leader>U :GoToFunImpl<cr>
 nnoremap <silent> <leader>a :Switch<cr>
-"nnoremap <leader><leader>fp :FormatFunParam<cr>
-"nnoremap <leader><leader>if :FormatIf<cr>
-"nnoremap <leader><leader>t dd :GenTryCatch<cr>
-"xnoremap <leader><leader>t d :GenTryCatch<cr>
 
 " change-colorscheme
-nnoremap <silent> <F9> :PreviousColorScheme<cr>
-inoremap <silent> <F9> <esc> :PreviousColorScheme<cr>
-nnoremap <silent> <F10> :NextColorScheme<cr>
-inoremap <silent> <F10> <esc> :NextColorScheme<cr>
-nnoremap <silent> <F11> :RandomColorScheme<cr>
-inoremap <silent> <F11> <esc> :RandomColorScheme<cr>
-nnoremap <silent> <F12> :ShowColorScheme<cr>
-inoremap <silent> <F12> <esc> :ShowColorScheme<cr>
+" nnoremap <silent> <F9> :PreviousColorScheme<cr>
+" inoremap <silent> <F9> <esc> :PreviousColorScheme<cr>
+" nnoremap <silent> <F10> :NextColorScheme<cr>
+" inoremap <silent> <F10> <esc> :NextColorScheme<cr>
+" nnoremap <silent> <F11> :RandomColorScheme<cr>
+" inoremap <silent> <F11> <esc> :RandomColorScheme<cr>
+" nnoremap <silent> <F12> :ShowColorScheme<cr>
+" inoremap <silent> <F12> <esc> :ShowColorScheme<cr>
 
 " prepare-code
 let g:prepare_code_plugin_path = expand($HOME . "/.config/nvim/plugged/prepare-code")
@@ -308,38 +300,8 @@ let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
 let g:NERDTreeHighlightFolders = 1         
 let g:NERDTreeHighlightFoldersFullName = 1 
-let g:NERDTreeDirArrowExpandable='▷'
-let g:NERDTreeDirArrowCollapsible='▼'
-
-" YCM
-" 如果不指定python解释器路径，ycm会自己搜索一个合适的(与编译ycm时使用的python版本匹配)
-" let g:ycm_server_python_interpreter = '/usr/bin/python2.7'
-let g:ycm_confirm_extra_conf = 0 
-let g:ycm_error_symbol = '✗'
-let g:ycm_warning_symbol = '✹'
-let g:ycm_seed_identifiers_with_syntax = 1 
-let g:ycm_complete_in_comments = 1 
-let g:ycm_complete_in_strings = 1 
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_semantic_triggers =  {
-            \   'c' : ['->', '.','re![_a-zA-z0-9]'],
-            \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
-            \             're!\[.*\]\s'],
-            \   'ocaml' : ['.', '#'],
-            \   'cpp,objcpp' : ['->', '.', '::','re![_a-zA-Z0-9]'],
-            \   'perl' : ['->'],
-            \   'php' : ['->', '::'],
-            \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
-            \   'ruby' : ['.', '::'],
-            \   'lua' : ['.', ':'],
-            \   'erlang' : [':'],
-            \ }
-" nnoremap <leader>u :YcmCompleter GoToDeclaration<cr>
-" " 已经使用cpp-mode插件提供的转到函数实现的功能
-" " nnoremap <leader>i :YcmCompleter GoToDefinition<cr> 
-" nnoremap <leader>o :YcmCompleter GoToInclude<cr>
-" nnoremap <leader>ff :YcmCompleter FixIt<cr>
-" nmap <F5> :YcmDiags<cr>
+let g:NERDTreeDirArrowExpandable=''
+let g:NERDTreeDirArrowCollapsible=''
 
 " tagbar
 let g:tagbar_width = 30
@@ -357,16 +319,16 @@ nmap <leader>w <Plug>(easymotion-overwin-w)
 
 " nerdtree-git-plugin
 let g:NERDTreeGitStatusIndicatorMapCustom = {
-            \ "Modified"  : "✹",
-            \ "Staged"    : "✚",
+            \ "Modified"  : "",
+            \ "Staged"    : "",
             \ "Untracked" : "✭",
-            \ "Renamed"   : "➜",
-            \ "Unmerged"  : "═",
-            \ "Deleted"   : "✖",
+            \ "Renamed"   : "",
+            \ "Unmerged"  : "",
+            \ "Deleted"   : "",
             \ "Dirty"     : "✗",
             \ "Clean"     : "✔︎",
-            \ 'Ignored'   : '☒',
-            \ "Unknown"   : "?"
+            \ 'Ignored'   : '',
+            \ "Unknown"   : ""
             \ }
 
 " LeaderF
@@ -433,8 +395,8 @@ inoremap <silent><expr> <TAB>
 	\ <SID>check_back_space() ? "\<TAB>" :
 	\ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-" 此行有问题后面解决
-" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+"  此处有问题
+inoremap <expr> <s-cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1]  =~# '\s'
@@ -478,7 +440,7 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 " nmap ttt :CocCommand explorer<CR>
 " coc-translator
-nmap ts <Plug>(coc-translator-p)
+" nmap ts <Plug>(coc-translator-p)
 " Remap for do codeAction of selected region
 function! s:cocActionsOpenFromSelected(type) abort
   execute 'CocCommand actions.open ' . a:type
@@ -499,6 +461,31 @@ let g:coc_snippet_prev = '<c-n>'
 imap <C-e> <Plug>(coc-snippets-expand-jump)
 let g:snips_author = 'David Chen'
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+
+" ===
+" === vim-translator
+" ===
+" Echo translation in the cmdline
+nmap <silent> ts <Plug>Translate
+vmap <silent> ts <Plug>TranslateV
+" Display translation in a window
+nmap <silent> tws <Plug>TranslateW
+vmap <silent> tws <Plug>TranslateWV
+" Replace the text with translation
+nmap <silent> trs <Plug>TranslateR
+vmap <silent> trs <Plug>TranslateRV
+" Translate the text in clipboard
+nmap <silent> txs <Plug>TranslateX
+
+nnoremap <silent><expr> <M-f> translator#window#float#has_scroll() ?
+                            \ translator#window#float#scroll(1) : "\<M-f>"
+nnoremap <silent><expr> <M-b> translator#window#float#has_scroll() ?
+                            \ translator#window#float#scroll(0) : "\<M-f>"
+
+" ENGINES > 'haici', 'iciba','google', 'trans', 'youdao', 'haici', 'bing' 
+let g:translator_default_engines = ['youdao', 'haici', 'bing']
+
+
 
 " ===
 " === Undotree
@@ -583,7 +570,7 @@ let g:rainbow_conf = {
 	\}
 
 " ===
-" === ranger
+" === ranger-rnvimr
 " ===
 " 让ranger替换 netrw成为文件浏览器
 let g:rnvimr_ex_enable = 1
