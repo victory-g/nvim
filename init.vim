@@ -591,7 +591,19 @@ let g:rnvimr_ex_enable = 1
 " 选择文件后隐藏 Ranger 
 let  g:rnvimr_enable_picker  =  1
 
-"
+" Resize floating window by all preset layouts
+tnoremap <silent> <M-i> <C-\><C-n>:RnvimrResize<CR>
+
+" Resize floating window by special preset layouts
+tnoremap <silent> <M-l> <C-\><C-n>:RnvimrResize 1,8,9,11,5<CR>
+" Add views for Ranger to adapt the size of floating window
+let g:rnvimr_ranger_views = [
+            \ {'minwidth': 90, 'ratio': []},
+            \ {'minwidth': 50, 'maxwidth': 89, 'ratio': [1,1]},
+            \ {'maxwidth': 49, 'ratio': [1]}
+            \ ]
+
+
 " 空格 + r打开ranger
 nmap <space>r :RnvimrToggle<CR>
 
