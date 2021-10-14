@@ -291,7 +291,7 @@ nnoremap <silent> <leader>D :BufOnly<cr>
 nnoremap Y :CopyText<cr>
 nnoremap D :DeleteText<cr>
 nnoremap C :ChangeText<cr>
-nnoremap <leader>r :ReplaceTo<space>
+nnoremap <leader>ra :ReplaceTo<space>
 
 " nerdtree
 nnoremap <silent> <leader>n :NERDTreeToggle<cr>
@@ -443,7 +443,7 @@ nmap <silent> gD :tab sp<CR><Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <leader> rn <Plug>(coc-rename)
+nmap <leader>rn <Plug>(coc-rename)
 " nmap ttt :CocCommand explorer<CR>
 " coc-translator
 " nmap ts <Plug>(coc-translator-p)
@@ -716,3 +716,5 @@ nnoremap <c-l> <c-w>l
 " shell-help
 noremap <leader>ot :set splitbelow<CR>:split<CR>:terminal<CR>:resize-20<CR>i
 
+" rename file
+:command! -nargs=1 Rename let tpname = expand('%:t') | saveas <args> | edit <args> | call delete(expand(tpname))
