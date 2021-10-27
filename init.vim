@@ -77,7 +77,7 @@ set ignorecase          " 搜索时大小写不敏感
 noremap <leader>vgc  :vimgrep /<C-r><C-w>/*.c *.h\|copen<cr> 
 
 " 在当前文件夹的文件中查找高亮的单词
-noremap <leader>vg  :vimgrep /<C-r><C-w>/*\|copen<cr>
+noremap <leader>vga  :vimgrep /<C-r><C-w>/*\|copen<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 缓存设置
@@ -137,12 +137,9 @@ Plug 'chxuan/change-colorscheme'
 Plug 'chxuan/prepare-code'
 Plug 'chxuan/vim-buffer'
 Plug 'chxuan/vimplus-startify'
-" Plug 'preservim/tagbar'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
-" Plug 'wellle/tmux-complete.vim'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension'  }
-Plug 'junegunn/fzf.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'jiangmiao/auto-pairs'
@@ -155,7 +152,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-endwise'
-Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
@@ -177,7 +173,6 @@ Plug 'nvim-treesitter/nvim-treesitter',  {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'      
 Plug 'ap/vim-css-color' 
 Plug 'RRethy/vim-illuminate'                              
-" Plug 'airblade/vim-rooter'
 Plug 'liuchengxu/vista.vim'
 Plug 'mbbill/undotree'
 Plug 'OmniSharp/omnisharp-vim'
@@ -186,6 +181,11 @@ Plug 'Yggdroot/indentLine'
 Plug 'luochen1990/rainbow' 
 Plug 'lambdalisue/suda.vim' 
 Plug 'skywind3000/vim-terminal-help'
+" Plug 'airblade/vim-rooter'
+" Plug 'preservim/tagbar'
+" Plug 'octol/vim-cpp-enhanced-highlight'
+" Plug 'wellle/tmux-complete.vim'
+" Plug 'junegunn/fzf.vim'
 
 " python插件
 Plug 'Vimjas/vim-python-pep8-indent', { 'for' :['python', 'vim-plug']  }
@@ -268,16 +268,6 @@ let g:airline_right_alt_sep = ''
 " cpp-mode
 nnoremap <silent> <leader>a :Switch<cr>
 
-" change-colorscheme
-" nnoremap <silent> <F9> :PreviousColorScheme<cr>
-" inoremap <silent> <F9> <esc> :PreviousColorScheme<cr>
-" nnoremap <silent> <F10> :NextColorScheme<cr>
-" inoremap <silent> <F10> <esc> :NextColorScheme<cr>
-" nnoremap <silent> <F11> :RandomColorScheme<cr>
-" inoremap <silent> <F11> <esc> :RandomColorScheme<cr>
-" nnoremap <silent> <F12> :ShowColorScheme<cr>
-" inoremap <silent> <F12> <esc> :ShowColorScheme<cr>
-
 " prepare-code
 let g:prepare_code_plugin_path = expand($HOME . "/.config/nvim/plugged/prepare-code")
 
@@ -304,13 +294,8 @@ let g:NERDTreeDirArrowExpandable=''
 let g:NERDTreeDirArrowCollapsible=''
 
 " tagbar
-let g:tagbar_width = 30
 nnoremap <silent> <leader>t :Tlist<cr>
 
-" incsearch.vim
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
 
 " vim-easymotion
 let g:EasyMotion_smartcase = 1
@@ -427,15 +412,55 @@ nnoremap <silent><nowait> <LEADER><LEADER>d :CocList diagnostics<cr>
 nmap <silent> <LEADER>- <Plug>(coc-diagnostic-prev)
 nmap <silent> <LEADER>+ <Plug>(coc-diagnostic-next)
 nnoremap <c-c> :CocCommand<CR>
-" Text Objects
-" xmap kf <Plug>(coc-funcobj-i)
-" omap kf <Plug>(coc-funcobj-i)
-" xmap af <Plug>(coc-funcobj-a)
-" omap af <Plug>(coc-funcobj-a)
+
+" Text Objects make youself text
+" xmap mf <Plug>(coc-funcobj-i)
+" omap mf <Plug>(coc-funcobj-i)
+" xmap 'f <Plug>(coc-funcobj-a)
+" omap 'f <Plug>(coc-funcobj-a)
 " xmap kc <Plug>(coc-classobj-i)
 " omap kc <Plug>(coc-classobj-i)
 " xmap ac <Plug>(coc-classobj-a)
 " omap ac <Plug>(coc-classobj-a)
+"
+" ===
+" === liuchengxu/vista
+" ===
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+
+set statusline+=%{NearestMethodOrFunction()}
+
+" By default vista.vim never run if you don't call it explicitly.
+"
+" If you want to show the nearest function in your statusline automatically,
+" you can add the following line to your vimrc
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified', 'method' ] ]
+      \ },
+      \ 'component_function': {
+      \   'method': 'NearestMethodOrFunction'
+      \ },
+      \ }
+
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+let g:vista_default_executive = 'ctags'
+let g:vista_executive_for = {
+  \ }
+" let  g: vista_fzf_preview  = [ ' right:50% ' ]
+let  g:vista#renderer#enable_icon = 1
+"默认图标不能适用于所有文件类型，您可以根据需要扩展它。
+let g:vista#renderer#icons = {
+\   "function": "\uf794",
+\   "variable": "\uf71b",
+\  }
+
+
 " Useful commands
 nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 nmap <silent> gd <Plug>(coc-definition)
@@ -552,11 +577,6 @@ let g:go_doc_keywordprg_enabled = 0
 
 
 " ===
-" === vim-hexokinase
-" ===
-let g:Hexokinase_highlighters = ['virtual']
-
-" ===
 " === rainbow
 " ===
 let g:rainbow_active = 1
@@ -656,7 +676,6 @@ imap <silent> <F9> <Plug>StopMarkdownPreview
 " 自定义配置
 set scrolloff=7
 autocmd BufNewFile *.html 0r ~/.config/nvim/template/template.html
-" set termguicolors           "  设置RDB显示vim-hexokinase
 
 "" 自定义快捷方式
 "
@@ -718,3 +737,6 @@ noremap <leader>ot :set splitbelow<CR>:split<CR>:terminal<CR>:resize-20<CR>i
 
 " rename file
 :command! -nargs=1 Rename let tpname = expand('%:t') | saveas <args> | edit <args> | call delete(expand(tpname))
+
+" 剪切板
+set clipboard+=unnamedplus
