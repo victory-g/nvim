@@ -181,6 +181,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'luochen1990/rainbow' 
 Plug 'lambdalisue/suda.vim' 
 Plug 'skywind3000/vim-terminal-help'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 " Plug 'airblade/vim-rooter'
 " Plug 'preservim/tagbar'
 " Plug 'octol/vim-cpp-enhanced-highlight'

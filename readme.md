@@ -6,6 +6,21 @@ nodejs npm  clang-tools-11 clangd-11 python3-venv libjansson-dev
 
 sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-11 100
 
+# 设置gem源
+1. 查看当前源：gem sources
+2. 换源：gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
+3. 清空源缓存：gem sources -c
+4. 更新源缓存：gem sources -u
+
+# 设置npm源
+npm config set registry https://registry.npm.taobao.org
+
+sudo npm i -g neovim --registry=https://registry.npm.taobao.org
+                     --registry=http://registry.npm.taobao.org
+                     
+# 设置pip源
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple/
+
 sudo npm i -g neovim
 sudo npm i -g bash-language-server
 pip2 install pynvim
