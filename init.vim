@@ -181,7 +181,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'luochen1990/rainbow' 
 Plug 'lambdalisue/suda.vim' 
 Plug 'skywind3000/vim-terminal-help'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'voldikss/vim-codelf'
+" Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 " Plug 'airblade/vim-rooter'
 " Plug 'preservim/tagbar'
 " Plug 'octol/vim-cpp-enhanced-highlight'
@@ -295,7 +296,8 @@ let g:NERDTreeDirArrowExpandable=''
 let g:NERDTreeDirArrowCollapsible=''
 
 " tagbar
-nnoremap <silent> <leader>t :Tlist<cr>
+" nnoremap <silent> <leader>t :Tlist<cr>
+nnoremap <silent> <leader>t :Vista<cr>
 
 
 " vim-easymotion
@@ -741,3 +743,5 @@ noremap <leader>ot :set splitbelow<CR>:split<CR>:terminal<CR>:resize-20<CR>i
 
 " 剪切板
 set clipboard+=unnamedplus
+
+set guifont=FiraCode\ Nerd\ Font\ Mono
