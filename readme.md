@@ -35,6 +35,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 # ctags安装使用
 ```shell
+http://ctags.sourceforge.net/
 $ git clone https://github.com/universal-ctags/ctags.git --depth=1
 $ cd ctags
 $ ./autogen.sh
