@@ -13,10 +13,11 @@ sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-11 100
 4. 更新源缓存：gem sources -u
 
 # 设置npm源
-npm config set registry https://registry.npm.taobao.org
+npm config set registry https://registry.npmmirror.com
+npm get registry
 
-sudo npm i -g neovim --registry=https://registry.npm.taobao.org
-                     --registry=http://registry.npm.taobao.org
+sudo npm i -g neovim --registry=https://registry.npmmirror.com
+                     --registry=https://registry.npmmirror.com
                      
 # 设置pip源
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple/
