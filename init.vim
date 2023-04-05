@@ -140,6 +140,7 @@ Plug 'chxuan/vimplus-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension'  }
+Plug 'Yggdroot/lfMru'
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'jiangmiao/auto-pairs'
