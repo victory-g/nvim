@@ -399,5 +399,7 @@
 | -------               | -----                      |
 | `vim -u NONE -N`      | 开启vim时不加载vimrc文件   |
 | `vimdiff file1 file2` | 显示文件差异               |
+| `do/:diffget` 	| 将当前差异内容合并到源文件中 |
+| `dp/:diffput` 	| 将当前差异内容合并到目标件中 |
 | `nvim -d file1 file2` | neovim显示文件差异         |
 | `vim -R filename`     | 以只读方式打开（阅读模式） |
