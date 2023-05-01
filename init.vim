@@ -212,6 +212,12 @@ Plug 'iamcco/markdown-preview.vim'
 " translator
 Plug 'voldikss/vim-translator'
 
+" gpt
+Plug 'madox2/vim-ai', { 'do': './install.sh' }
+
+" github 
+Plug 'github/copilot.vim'
+
 " 加载用户自定义插件
 " if filereadable(expand($HOME . '/.vimrc.custom.plugins'))
 "     source $HOME/.vimrc.custom.plugins
@@ -705,6 +711,11 @@ nmap <right> :vertical resize+5<CR>
 nmap <up>    :resize-5<CR>
 nmap <down>  :resize+5<CR>
 
+" github
+" imap  <M-1> <Plug>(copilot-previous)
+" imap  <M-2> <Plug>(copilot-next)
+" imap  <M-3> <Plug>(copilot-suggest)
+
 " 取消t的功能
 nmap t <nop>
 " 设置快捷标签页
@@ -746,3 +757,6 @@ noremap <leader>ot :set splitbelow<CR>:split<CR>:terminal<CR>:resize-20<CR>i
 set clipboard+=unnamedplus
 
 set guifont=FiraCode\ Nerd\ Font\ Mono
+
+" 关闭鼠标
+" set mouse=
