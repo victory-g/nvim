@@ -140,7 +140,7 @@ Plug 'chxuan/vimplus-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension'  }
-Plug 'Yggdroot/lfMru'
+" Plug 'Yggdroot/lfMru'
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'jiangmiao/auto-pairs'
@@ -217,7 +217,9 @@ Plug 'madox2/vim-ai', { 'do': './install.sh' }
 
 " github 
 Plug 'github/copilot.vim'
-
+"
+"
+""
 " 加载用户自定义插件
 " if filereadable(expand($HOME . '/.vimrc.custom.plugins'))
 "     source $HOME/.vimrc.custom.plugins
@@ -677,6 +679,87 @@ nmap <silent> <F9> <Plug>StopMarkdownPreview
 imap <silent> <F9> <Plug>StopMarkdownPreview    
 
 
+" === vim-ai ===
+" :AI
+" - engine: complete | chat - see how to configure chat engine in the section below
+" - options: openai config (see https://platform.openai.com/docs/api-reference/completions)
+" - options.request_timeout: request timeout in seconds
+" - options.selection_boundary: seleciton prompt wrapper (eliminates empty responses, see #20)
+" - ui.paste_mode: use paste mode (see more info in the Notes below)
+let g:vim_ai_complete = {
+\  "engine": "complete",
+\  "options": {
+\    "model": "text-davinci-003",
+\    "max_tokens": 1000,
+\    "temperature": 0.1,
+\    "request_timeout": 20,
+\    "selection_boundary": "#####",
+\  },
+\  "ui": {
+\    "paste_mode": 1,
+\  },
+\}
+
+" :AIEdit
+" - engine: complete | chat - see how to configure chat engine in the section below
+" - options: openai config (see https://platform.openai.com/docs/api-reference/completions)
+" - options.request_timeout: request timeout in seconds
+" - options.selection_boundary: seleciton prompt wrapper
+" - ui.paste_mode: use paste mode (see more info in the Notes below)
+let g:vim_ai_edit = {
+\  "engine": "complete",
+\  "options": {
+\    "model": "text-davinci-003",
+\    "max_tokens": 1000,
+\    "temperature": 0.1,
+\    "request_timeout": 20,
+\    "selection_boundary": "#####",
+\  },
+\  "ui": {
+\    "paste_mode": 1,
+\  },
+\}
+
+" This prompt instructs model to work with syntax highlighting
+let s:initial_chat_prompt =<< trim END
+>>> system
+
+You are a general assistant.
+If you attach a code block add syntax type after ``` to enable syntax highlighting.
+END
+
+" :AIChat
+" - options: openai config (see https://platform.openai.com/docs/api-reference/chat)
+" - options.initial_prompt: prompt prepended to every chat request
+" - options.request_timeout: request timeout in seconds
+" - options.selection_boundary: seleciton prompt wrapper
+" - ui.populate_options: put [chat-options] to the chat header
+" - ui.open_chat_command: preset (preset_below, preset_tab, preset_right) or a custom command
+" - ui.scratch_buffer_keep_open: re-use scratch buffer within the vim session
+" - ui.paste_mode: use paste mode (see more info in the Notes below)
+let g:vim_ai_chat = {
+\  "options": {
+\    "model": "gpt-3.5-turbo",
+\    "max_tokens": 1000,
+\    "temperature": 1,
+\    "request_timeout": 20,
+\    "selection_boundary": "",
+\    "initial_prompt": s:initial_chat_prompt,
+\  },
+\  "ui": {
+\    "code_syntax_enabled": 1,
+\    "populate_options": 0,
+\    "open_chat_command": "preset_below",
+\    "scratch_buffer_keep_open": 0,
+\    "paste_mode": 1,
+\  },
+\}
+
+" Notes:
+" ui.paste_mode
+" - if disabled code indentation will work but AI doesn't always respond with a code block
+"   therefore it could be messed up
+" - find out more in vim's help `:help paste`
 "
 " 加载自定义配置
 " if filereadable(expand($HOME . '/.vimrc.custom.config'))
@@ -712,9 +795,16 @@ nmap <up>    :resize-5<CR>
 nmap <down>  :resize+5<CR>
 
 " github
-" imap  <M-1> <Plug>(copilot-previous)
-" imap  <M-2> <Plug>(copilot-next)
-" imap  <M-3> <Plug>(copilot-suggest)
+imap  <M-1> <Plug>(copilot-previous)
+imap  <M-2> <Plug>(copilot-next)
+imap  <M-3> <Plug>(copilot-suggest)
+nmap <silent> stp <Esc>:Copilot disable<CR>
+nmap <silent> sto <Esc>:Copilot enable<CR>
+" autocmd VimEnter * :checkhealth
+" function! CopilotDisable()
+"     :Copilot disable <CR>
+" endfunction
+" autocmd VimEnter * call CopilotDisable()
 
 " 取消t的功能
 nmap t <nop>
@@ -759,4 +849,5 @@ set clipboard+=unnamedplus
 set guifont=FiraCode\ Nerd\ Font\ Mono
 
 " 关闭鼠标
-" set mouse=
+set mouse=
+
