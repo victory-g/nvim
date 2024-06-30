@@ -121,3 +121,19 @@ https://blog.csdn.net/networkhunter/article/details/91952294
 4. :helptags .
 5. :Tlist
 ```
+
+# lazyVim
+## init.lua
+```shell
+# init.lua中添加self.myConfig
+~/.config/nvim/init.lua
+
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
+require("self.myConfig")
+```
+## self.myConfig
+```shell
+1. 在~/.config/nvim/lua下创建self文件夹
+2. 将myConfig.lua拷贝到self文件夹
+```
